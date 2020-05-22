@@ -52,3 +52,4 @@ function generatePassword() {
   output.innerHTML = password;
 
 }
+
