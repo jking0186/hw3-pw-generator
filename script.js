@@ -1,5 +1,5 @@
 // Write password to the #password input
-function writePassword() {
+function generatePassword() {
 
 
   var fromPrompt = prompt("Select a number 8 through 128");
@@ -10,7 +10,7 @@ function writePassword() {
     alert("Value must be between 8 - 128 characters");
   } 
   else {
-    var typesOfCharacters = {
+    var characterTypes = {
       lowercase: "abcdefghijklmnopqrstuvwxyz",
       specialCharacters: "!@#$%^&*()_-+=[]{}<>?",
       };
@@ -20,25 +20,20 @@ function writePassword() {
       var useSpecialChar = confirm("Use Special Characters?");
       var useNumbers = confirm("Use Numbers?");
     
-      console.log("L: ", useLowerCase);
-      console.log("U: ", useUpperCase);
-      console.log("S: ", useSpecialChar);
-      console.log("N: ", useNumbers);
-    
       var password = "";
     
       var possibleCharacters = [];
     
         if (useUpperCase) {
-          possibleCharacters = possibleCharacters.concat(typesOfCharacters.lowercase.toUpperCase().split(""));
+          possibleCharacters = possibleCharacters.concat(characterTypes.lowercase.toUpperCase().split(""));
     
         }
         if (useLowerCase) {
-          possibleCharacters = possibleCharacters.concat(typesOfCharacters.lowercase.split(""));
+          possibleCharacters = possibleCharacters.concat(characterTypes.lowercase.split(""));
     
         } 
         if (useSpecialChar) {
-          possibleCharacters = possibleCharacters.concat(typesOfCharacters.specialCharacters.split(""));
+          possibleCharacters = possibleCharacters.concat(characterTypes.specialCharacters.split(""));
     
         } 
         if (useNumbers) {
@@ -47,7 +42,6 @@ function writePassword() {
           }
         }
     
-      console.log(possibleCharacters);
     for (var i = 0; i < totalCharacters; i++) {
       var position = Math.floor(Math.random() * possibleCharacters.length);
       password = password + possibleCharacters[position];
@@ -57,5 +51,4 @@ function writePassword() {
   var output = document.getElementById("password");
   output.innerHTML = password;
 
-  console.log(password);
 }
